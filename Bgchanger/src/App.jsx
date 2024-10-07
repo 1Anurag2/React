@@ -44,14 +44,14 @@ function App() {
             <button
             onClick={()=>{setColor("white")}}
             className="outline-noe px-4 py-1 rounded-full
-            text-black shadow-lg mr-4"
+            text-black border border-green-500 shadow-lg mr-4"
             style={{backgroundColor : "white"}}
             >White</button>
 
             <button
             onClick={()=>{setColor("black")}}
             className="outline-noe px-4 py-1 rounded-full
-            text-white shadow-lg mr-4 "
+            text-white  shadow-lg mr-4 "
             style={{backgroundColor : "black"}}
             >Black</button>
 
