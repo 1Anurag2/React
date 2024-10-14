@@ -8,7 +8,7 @@ export function App() {
   const [Password , setPassword] = useState("")
   
   // ref hook
-  const passwordRef = useRef(null)
+  const passwordRef =  useRef(null)
 
   const passwordGenerator =useCallback(()=>{
     let pass = ""
