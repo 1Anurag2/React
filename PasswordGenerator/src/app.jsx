@@ -1,4 +1,4 @@
-import { useCallback, useState , useEffect } from 'preact/hooks'
+import { useCallback, useState , useEffect ,useRef} from 'preact/hooks'
 
 
 export function App() {
@@ -7,6 +7,8 @@ export function App() {
   const [charAllowed , setcharAllowed] = useState(false)
   const [Password , setPassword] = useState("")
   
+  // ref hook
+  const passwordRef = useRef(null)
 
   const passwordGenerator =useCallback(()=>{
     let pass = ""
@@ -23,6 +25,13 @@ export function App() {
     setPassword(pass)
   } , [length,NumberAllowed,charAllowed,setPassword])
 
+
+  const copyPasswordToClipboard = useCallback(()=>{
+    passwordRef.current?.select()
+    passwordRef.current?.setSelectionRange(0,20)
+    window.navigator.clipboard.writeText(Password)
+  } , [Password])
+
   useEffect(()=>{
     passwordGenerator()
   },[length,NumberAllowed,charAllowed])
@@ -37,8 +46,10 @@ export function App() {
         className='outline-none w-full py-1 px-3'
         placeholder='password'
         readOnly 
+        ref = {passwordRef}
         />
         <button
+        onClick = {copyPasswordToClipboard}
         className='outline-none bg-blue-700 text-white
         px-3 py-0.5 shrink-0'>
           copy
