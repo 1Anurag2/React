@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+// import App from './App'
 
 export default class Guest extends Component{
     render(){
         return (
-            <div>
+            <React.Fragment>
                 <h1>Welcome Guest</h1>
-                <button>Login</button>
+                <button onClick={this.props.clickdata}>Login</button>
                 <button>signUp</button>
-            </div>
+            </React.Fragment>
         )
     }
 }
